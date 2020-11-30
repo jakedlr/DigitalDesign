@@ -1,0 +1,105 @@
+makeBackground();
+makeSun();
+makeMountainRange();
+makeAllRocks();
+makeClouds();
+makeRiver();
+makeAllFish();
+function makeMountainRange() {
+  makeMountain(275, 20, 50);
+  makeMountain(350, 30, 75);
+  makeMountain(250, 70, 150);
+}
+//This makes the mountain range in the back of the scene. This was made by Jake.
+function makeAllRocks(){
+  for (var i = 0; i < 20; i++){
+    makeRocks(randomNumber (10, 20));
+  }
+}
+//This ads rocks to the scene. This was made by Jarod.  
+function makeAllFish(){
+  for (var i = 0; i < 15; i++) {
+    moveTo(randomNumber(0,320),randomNumber(450,450));
+	makeFish(randomNumber(5,20),randomNumber(100,255),randomNumber(0,150),50);
+  }
+}
+// This adds fish in the river. This was made by Lucas.
+function makeMountain(mountainSize, xCoord1, xCoord2) {
+  penRGB(randomNumber(200,220), randomNumber(95,115), randomNumber(20,40));
+  penUp();
+  moveTo(randomNumber(xCoord1,xCoord2), 450);
+  penDown();
+  turnTo(25);
+  moveForward(mountainSize);
+  turnRight(135);
+  moveForward(mountainSize);
+}
+function makeSunPart(size) {
+  moveForward(size);
+  turnRight(120);
+  moveForward(size);
+  turnLeft(90);
+}
+function makeSun() {
+  penWidth(randomNumber(3,6));
+  penRGB(235, randomNumber(20,100), 20);
+  penUp();
+  moveTo(randomNumber(70,250), 75);
+  penDown();
+  turnRight(30);
+  for (var i = 0; i < 12; i++) {
+    makeSunPart(12);
+  }
+}
+//I set up the code that makes the mountains and the sun.This was made by Jake.
+
+function makeRocks(rockSize){
+  penRGB(90, 77, 65);
+  penUp();
+  moveTo(randomNumber(10, 310), randomNumber(400, 450));
+  penDown();
+  dot(rockSize);
+}
+//the rocks sit above the river, to add to the adventure scene.This was made by Jarod.   
+function makeBackground(){
+  penRGB(randomNumber(20, 50), randomNumber(75, 100), randomNumber(200, 255));
+  dot(999);
+}
+//This is the background that ties the project together. This was made by Jarod and Kai.  
+
+function makeClouds() {
+  onEvent("screen1", "display", function( ) {
+    showElement("cloud1");
+    showElement("cloud2");
+    showElement("cloud3");
+  });
+}
+//This adds clouds in the sky. This was made by Drew. 
+function makeRiver() {
+  penWidth(25);
+  penRGB(randomNumber(0, 30), randomNumber(0, 30), randomNumber(150, 200));
+  penUp();
+  moveTo(randomNumber(1, 10), 440);
+  turnLeft(70);
+  penDown();
+  moveForward(400);
+}
+//This adds the river of which the fish swim in. This was made by Andrew.  
+
+function makeFish(size, red, green, blue){
+  penRGB(red,green,blue);
+  penWidth(size);
+  penDown();
+  dot(size);
+  turnTo(90);
+  moveForward(size);
+  turnLeft(30);
+  moveForward(size);
+  turnRight(120);
+  moveForward(size);
+  turnRight(120);
+  moveForward(size);
+  turnRight(120);
+  penUp();
+}
+//This makes the shapes for the fish. This is made by Lucas. 
